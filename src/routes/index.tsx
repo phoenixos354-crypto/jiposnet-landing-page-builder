@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
-import { useState, type LucideIcon } from "react";
+import { useState } from "react";
+import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
   BadgeCheck,
@@ -17,7 +18,6 @@ import {
   Router,
   ShieldCheck,
   Sparkles,
-  Users,
   Wifi,
   X,
   Zap,
