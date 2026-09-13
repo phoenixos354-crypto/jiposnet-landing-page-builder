@@ -172,3 +172,62 @@
 @utility soft-shadow {
   box-shadow: 0 18px 50px -24px color-mix(in oklab, var(--brand-deep) 25%, transparent);
 }
+
+/*
+ * Entrance animation primitives.
+ * .reveal starts hidden/offset; .reveal-in is added once the element
+ * scrolls into view (see useReveal hook), triggering a smooth,
+ * professional fade + slide using a custom easing curve.
+ */
+.reveal {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.reveal-left {
+  transform: translateX(-28px);
+}
+
+.reveal-right {
+  transform: translateX(28px);
+}
+
+.reveal-scale {
+  transform: scale(0.94);
+}
+
+.reveal-in {
+  opacity: 1;
+  transform: translate(0, 0) scale(1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+@keyframes header-drop-in {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-header-in {
+  animation: header-drop-in 0.7s cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-header-in {
+    animation: none;
+  }
+}
