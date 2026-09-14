@@ -10,33 +10,169 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as AdminAuthedRouteImport } from './routes/admin/_authed'
+import { Route as AdminLoginRouteImport } from './routes/admin/login'
+import { Route as AdminAuthedIndexRouteImport } from './routes/admin/_authed/index'
+import { Route as AdminAuthedCakupanRouteImport } from './routes/admin/_authed/cakupan'
+import { Route as AdminAuthedCtaRouteImport } from './routes/admin/_authed/cta'
+import { Route as AdminAuthedFooterRouteImport } from './routes/admin/_authed/footer'
+import { Route as AdminAuthedHeroRouteImport } from './routes/admin/_authed/hero'
+import { Route as AdminAuthedKeunggulanRouteImport } from './routes/admin/_authed/keunggulan'
+import { Route as AdminAuthedPaketRouteImport } from './routes/admin/_authed/paket'
+import { Route as AdminAuthedPengaturanRouteImport } from './routes/admin/_authed/pengaturan'
+import { Route as AdminAuthedTestimoniRouteImport } from './routes/admin/_authed/testimoni'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const AdminAuthedRoute = AdminAuthedRouteImport.update({
+  id: '/admin/_authed',
+  path: '/admin',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminLoginRoute = AdminLoginRouteImport.update({
+  id: '/admin/login',
+  path: '/admin/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdminAuthedIndexRoute = AdminAuthedIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedCakupanRoute = AdminAuthedCakupanRouteImport.update({
+  id: '/cakupan',
+  path: '/cakupan',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedCtaRoute = AdminAuthedCtaRouteImport.update({
+  id: '/cta',
+  path: '/cta',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedFooterRoute = AdminAuthedFooterRouteImport.update({
+  id: '/footer',
+  path: '/footer',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedHeroRoute = AdminAuthedHeroRouteImport.update({
+  id: '/hero',
+  path: '/hero',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedKeunggulanRoute = AdminAuthedKeunggulanRouteImport.update({
+  id: '/keunggulan',
+  path: '/keunggulan',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedPaketRoute = AdminAuthedPaketRouteImport.update({
+  id: '/paket',
+  path: '/paket',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedPengaturanRoute = AdminAuthedPengaturanRouteImport.update({
+  id: '/pengaturan',
+  path: '/pengaturan',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
+const AdminAuthedTestimoniRoute = AdminAuthedTestimoniRouteImport.update({
+  id: '/testimoni',
+  path: '/testimoni',
+  getParentRoute: () => AdminAuthedRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/admin': typeof AdminAuthedRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/cakupan': typeof AdminAuthedCakupanRoute
+  '/admin/cta': typeof AdminAuthedCtaRoute
+  '/admin/footer': typeof AdminAuthedFooterRoute
+  '/admin/hero': typeof AdminAuthedHeroRoute
+  '/admin/keunggulan': typeof AdminAuthedKeunggulanRoute
+  '/admin/paket': typeof AdminAuthedPaketRoute
+  '/admin/pengaturan': typeof AdminAuthedPengaturanRoute
+  '/admin/testimoni': typeof AdminAuthedTestimoniRoute
+  '/admin/': typeof AdminAuthedIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/cakupan': typeof AdminAuthedCakupanRoute
+  '/admin/cta': typeof AdminAuthedCtaRoute
+  '/admin/footer': typeof AdminAuthedFooterRoute
+  '/admin/hero': typeof AdminAuthedHeroRoute
+  '/admin/keunggulan': typeof AdminAuthedKeunggulanRoute
+  '/admin/paket': typeof AdminAuthedPaketRoute
+  '/admin/pengaturan': typeof AdminAuthedPengaturanRoute
+  '/admin/testimoni': typeof AdminAuthedTestimoniRoute
+  '/admin': typeof AdminAuthedIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/admin/_authed': typeof AdminAuthedRouteWithChildren
+  '/admin/login': typeof AdminLoginRoute
+  '/admin/_authed/cakupan': typeof AdminAuthedCakupanRoute
+  '/admin/_authed/cta': typeof AdminAuthedCtaRoute
+  '/admin/_authed/footer': typeof AdminAuthedFooterRoute
+  '/admin/_authed/hero': typeof AdminAuthedHeroRoute
+  '/admin/_authed/keunggulan': typeof AdminAuthedKeunggulanRoute
+  '/admin/_authed/paket': typeof AdminAuthedPaketRoute
+  '/admin/_authed/pengaturan': typeof AdminAuthedPengaturanRoute
+  '/admin/_authed/testimoni': typeof AdminAuthedTestimoniRoute
+  '/admin/_authed/': typeof AdminAuthedIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/admin'
+    | '/admin/login'
+    | '/admin/cakupan'
+    | '/admin/cta'
+    | '/admin/footer'
+    | '/admin/hero'
+    | '/admin/keunggulan'
+    | '/admin/paket'
+    | '/admin/pengaturan'
+    | '/admin/testimoni'
+    | '/admin/'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/admin/login'
+    | '/admin/cakupan'
+    | '/admin/cta'
+    | '/admin/footer'
+    | '/admin/hero'
+    | '/admin/keunggulan'
+    | '/admin/paket'
+    | '/admin/pengaturan'
+    | '/admin/testimoni'
+    | '/admin'
+  id:
+    | '__root__'
+    | '/'
+    | '/admin/_authed'
+    | '/admin/login'
+    | '/admin/_authed/cakupan'
+    | '/admin/_authed/cta'
+    | '/admin/_authed/footer'
+    | '/admin/_authed/hero'
+    | '/admin/_authed/keunggulan'
+    | '/admin/_authed/paket'
+    | '/admin/_authed/pengaturan'
+    | '/admin/_authed/testimoni'
+    | '/admin/_authed/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AdminAuthedRoute: typeof AdminAuthedRouteWithChildren
+  AdminLoginRoute: typeof AdminLoginRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -48,11 +184,118 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/admin/_authed': {
+      id: '/admin/_authed'
+      path: '/admin'
+      fullPath: '/admin'
+      preLoaderRoute: typeof AdminAuthedRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/login': {
+      id: '/admin/login'
+      path: '/admin/login'
+      fullPath: '/admin/login'
+      preLoaderRoute: typeof AdminLoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admin/_authed/': {
+      id: '/admin/_authed/'
+      path: '/'
+      fullPath: '/admin/'
+      preLoaderRoute: typeof AdminAuthedIndexRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/cakupan': {
+      id: '/admin/_authed/cakupan'
+      path: '/cakupan'
+      fullPath: '/admin/cakupan'
+      preLoaderRoute: typeof AdminAuthedCakupanRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/cta': {
+      id: '/admin/_authed/cta'
+      path: '/cta'
+      fullPath: '/admin/cta'
+      preLoaderRoute: typeof AdminAuthedCtaRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/footer': {
+      id: '/admin/_authed/footer'
+      path: '/footer'
+      fullPath: '/admin/footer'
+      preLoaderRoute: typeof AdminAuthedFooterRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/hero': {
+      id: '/admin/_authed/hero'
+      path: '/hero'
+      fullPath: '/admin/hero'
+      preLoaderRoute: typeof AdminAuthedHeroRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/keunggulan': {
+      id: '/admin/_authed/keunggulan'
+      path: '/keunggulan'
+      fullPath: '/admin/keunggulan'
+      preLoaderRoute: typeof AdminAuthedKeunggulanRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/paket': {
+      id: '/admin/_authed/paket'
+      path: '/paket'
+      fullPath: '/admin/paket'
+      preLoaderRoute: typeof AdminAuthedPaketRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/pengaturan': {
+      id: '/admin/_authed/pengaturan'
+      path: '/pengaturan'
+      fullPath: '/admin/pengaturan'
+      preLoaderRoute: typeof AdminAuthedPengaturanRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
+    '/admin/_authed/testimoni': {
+      id: '/admin/_authed/testimoni'
+      path: '/testimoni'
+      fullPath: '/admin/testimoni'
+      preLoaderRoute: typeof AdminAuthedTestimoniRouteImport
+      parentRoute: typeof AdminAuthedRoute
+    }
   }
 }
 
+interface AdminAuthedRouteChildren {
+  AdminAuthedCakupanRoute: typeof AdminAuthedCakupanRoute
+  AdminAuthedCtaRoute: typeof AdminAuthedCtaRoute
+  AdminAuthedFooterRoute: typeof AdminAuthedFooterRoute
+  AdminAuthedHeroRoute: typeof AdminAuthedHeroRoute
+  AdminAuthedKeunggulanRoute: typeof AdminAuthedKeunggulanRoute
+  AdminAuthedPaketRoute: typeof AdminAuthedPaketRoute
+  AdminAuthedPengaturanRoute: typeof AdminAuthedPengaturanRoute
+  AdminAuthedTestimoniRoute: typeof AdminAuthedTestimoniRoute
+  AdminAuthedIndexRoute: typeof AdminAuthedIndexRoute
+}
+
+const AdminAuthedRouteChildren: AdminAuthedRouteChildren = {
+  AdminAuthedCakupanRoute: AdminAuthedCakupanRoute,
+  AdminAuthedCtaRoute: AdminAuthedCtaRoute,
+  AdminAuthedFooterRoute: AdminAuthedFooterRoute,
+  AdminAuthedHeroRoute: AdminAuthedHeroRoute,
+  AdminAuthedKeunggulanRoute: AdminAuthedKeunggulanRoute,
+  AdminAuthedPaketRoute: AdminAuthedPaketRoute,
+  AdminAuthedPengaturanRoute: AdminAuthedPengaturanRoute,
+  AdminAuthedTestimoniRoute: AdminAuthedTestimoniRoute,
+  AdminAuthedIndexRoute: AdminAuthedIndexRoute,
+}
+
+const AdminAuthedRouteWithChildren = AdminAuthedRoute._addFileChildren(
+  AdminAuthedRouteChildren,
+)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AdminAuthedRoute: AdminAuthedRouteWithChildren,
+  AdminLoginRoute: AdminLoginRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
